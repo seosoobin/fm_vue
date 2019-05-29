@@ -19,7 +19,7 @@
                     <td>{{ member._id }}</td>
                     <td>{{ member.name }}</td>
                     <td>{{ member.id }}</td>
-                    <td><router-link :to="{name: 'MemberDetail', params: { id: member._id }}" class="btn btn-primary">Edit</router-link></td>
+                    <td><router-link :to="{name: 'MemberDetail', params: { mid: member._id}}" class="btn btn-primary">Edit</router-link></td>
                     <td><button class="btn btn-danger">Delete</button></td>
                 </tr>
             </tbody>
@@ -29,7 +29,7 @@
 <script>
 export default {
   created () {
-    var id = this.$route.params.id;
+    const id = this.$route.params.id;
     this.$http.get(`/api/${id}/member`)
     .then((response) => {
       this.members = response.data
@@ -37,6 +37,7 @@ export default {
   },
   data () {
     return {
+      //id: this.$route.params.id,
       members: []
     }
   }

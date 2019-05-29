@@ -8,11 +8,11 @@
                 <form v-on:submit.prevent="memberCreateSubmit">
                     <div class="form-group">
                         <label>Name:</label>
-                        <input type="text" name="memberName" required v-model="member.memberName" class="form-control"/>
+                        <input type="text" name="memberName" required v-model="member.name" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label>ID:</label>
-                        <input type="text" name="memberId" required v-model="member.memberId" class="form-control"/>
+                        <input type="text" name="memberId" required v-model="member.id" class="form-control"/>
                     </div>
                     <div class="form-group">
                         <input type="submit" class="btn btn-primary" value="Register"/>
@@ -27,15 +27,16 @@ export default {
     data() {
         return{
             member: {
-                memberName: "",
-                memberId:"",
+                name: "",
+                id:"",
             },
             response: ""
         }
     },
     methods: {
         memberCreateSubmit(){
-            this.$http.post('/api/member', this.member)
+            var id = this.$route.params.id;
+            this.$http.post(`/api/${id}/member`, this.member)
             .then(res => {
                 console.log(res);
             })
