@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-import MemberList from '@/components/member/List'
-import MemberDetail from '@/components/member/Detail'
-import MemberCreate from '@/components/member/Create'
+import ShowMembers  from '@/components/member/List'
+import ShowMember   from '@/components/member/Detail'
+import CreateMember from '@/components/member/Create'
+import ModifyMember from '@/components/member/Modify'
 import App from '@/App';
 
 export default new Router({
@@ -17,18 +18,23 @@ export default new Router({
     },
     {
       path: '/:id/member',
-      name: 'MemberList',
-      component: MemberList
+      name: 'ShowMembers',
+      component: ShowMembers
     },
     {
       path: '/:id/member/create',
-      name: 'MemberCreate',
-      component: MemberCreate
+      name: 'CreateMember',
+      component: CreateMember
     },
     {
       path: '/:id/member/:mid',
-      name: 'MemberDetail',
-      component: MemberDetail
-    }
+      name: 'ShowMember',
+      component: ShowMember
+    },
+    {
+      path: '/:id/member/modify',
+      name: 'ModifyMember',
+      component: ModifyMember
+    },
   ]
 })

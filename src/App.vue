@@ -3,10 +3,10 @@
     <nav class="navbar navbar-expand-sm bg-light">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link :to="{ name: 'MemberCreate' }" class="nav-link">Create Member</router-link>
+          <router-link :to="{ name: 'ShowMembers' }" class="nav-link">Show members</router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="{ name: 'MemberList' }" class="nav-link">All members</router-link>
+          <router-link :to="{ name: 'CreateMember' }" class="nav-link">Create Member</router-link>
         </li>
       </ul>
     </nav>
