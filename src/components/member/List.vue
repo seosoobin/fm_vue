@@ -30,7 +30,7 @@
 export default {
   created () {
     const id = this.$route.params.id;
-    this.$http.get(`/api/${id}/member`)
+    this.$http.get(`/api/team/${id}/member`)
     .then((response) => {
       this.members = response.data
     })

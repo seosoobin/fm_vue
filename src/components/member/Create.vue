@@ -36,7 +36,7 @@ export default {
     methods: {
         memberCreateSubmit(){
             var id = this.$route.params.id;
-            this.$http.post(`/api/${id}/member`, this.member)
+            this.$http.post(`/api/team/${id}/member`, this.member)
             .then(res => {
                 console.log(res);
             })

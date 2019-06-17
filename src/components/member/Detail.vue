@@ -10,7 +10,7 @@ export default {
   created: function () {
     var id = this.$route.params.id;
     var mid = this.$route.params.mid;
-    this.$http.get(`/api/${id}/member/${mid}`)
+    this.$http.get(`/api/team/${id}/member/${mid}`)
     .then((response) => {
       this.member = response.data
     })

@@ -5,7 +5,7 @@
                 <h3>Create Member</h3>
             </div>
             <div class="card-body">
-                <form v-on:submit.prevent="memberCreateSubmit">
+                <form v-on:submit.prevent="memberModifySubmit">
                     <div class="form-group">
                         <label>Name:</label>
                         <input type="text" name="memberName" required v-model="member.name" class="form-control"/>
@@ -33,7 +33,8 @@ export default {
     methods: {
         memberModifySubmit(){
             var id = this.$route.params.id;
-            this.$http.put(`/api/${id}/member`, this.member)
+            var mid = this.$route.params.mid;
+            this.$http.put(`/api/team/${id}/member/${mid}`, this.member)
             .then(res => {
                 console.log(res);
             })
@@ -47,7 +48,7 @@ export default {
     created() {
         var id = this.$route.params.id;
         var mid = this.$route.params.mid;
-        this.$http.get(`/api/${id}/member/${mid}`)
+        this.$http.get(`/api/team/${id}/member/${mid}`)
         .then((response) => {
             this.member = response.data
         })
